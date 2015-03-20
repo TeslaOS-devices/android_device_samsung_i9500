@@ -1,12 +1,12 @@
 $(call inherit-product, device/samsung/i9500/full_i9500.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/tesla/config/nfc_enhanced.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common Tesla stuff.
+$(call inherit-product, vendor/tesla/config/common_full_phone.mk)
 
-PRODUCT_NAME := cm_i9500
+PRODUCT_NAME := tesla_i9500
 PRODUCT_DEVICE := i9500
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
