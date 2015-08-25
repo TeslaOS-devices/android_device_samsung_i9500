@@ -30,7 +30,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Platform
 TARGET_BOARD_PLATFORM := exynos5
-TARGET_SLSI_VARIANT := insignal
+TARGET_SLSI_VARIANT := cm
 TARGET_SOC := exynos5410
 
 # Architecture
@@ -39,7 +39,6 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a15
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a15
 
 # Kernel
@@ -57,10 +56,6 @@ BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-# Boot animation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
 # Camera
 BOARD_NEEDS_MEMORYHEAPION := true
 BOARD_USE_ANB_OUTBUF_SHARE := true
@@ -70,12 +65,15 @@ BOARD_USE_IMPROVED_BUFFER := true
 BOARD_USE_METADATABUFFERTYPE := true
 BOARD_USE_STOREMETADATA := true
 BOARD_USES_LEGACY_MMAP := true
-TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # Charger
-BOARD_BATTERY_DEVICE_NAME := battery
 BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+RED_LED_PATH := "/sys/class/leds/led_r/brightness"
+GREEN_LED_PATH := "/sys/class/leds/led_g/brightness"
+BLUE_LED_PATH := "/sys/class/leds/led_b/brightness"
+BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 CHARGING_ENABLED_PATH := "/sys/class/power_supply/battery/batt_lp_charging"
 
 # CMHW
@@ -92,11 +90,15 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 EXTENDED_FONT_FOOTPRINT := true
 
 # Graphics
-BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 BOARD_EGL_SYSTEMUI_PBSIZE_HACK := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+COMMON_GLOBAL_CFLAGS += -DSURFACE_IS_BGR32
+COMMON_GLOBAL_CFLAGS += -DUSE_NATIVE_SEC_NV12TILED
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 USE_OPENGL_RENDERER := true
+
+# Media
+BOARD_USE_ALP_AUDIO := true
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := universal5410
@@ -107,8 +109,8 @@ BOARD_PROVIDES_LIBRIL := true
 BOARD_RIL_CLASS := ../../../device/samsung/i9500/ril
 
 # Recovery
+BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.universal5410
-TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # SELinux
@@ -116,13 +118,21 @@ BOARD_SEPOLICY_DIRS += \
     device/samsung/i9500/sepolicy
 
 BOARD_SEPOLICY_UNION := \
+    bluetooth.te \
     device.te \
-    domain.te \
+    drmserver.te \
     file_contexts \
+    file.te \
     gpsd.te \
     mediaserver.te \
-    surfaceflinger.te \
-    system.te
+    property_contexts \
+    property.te \
+    pvrsrvctl.te \
+    rild.te \
+    shell.te \
+    system_server.te \
+    ueventd.te \
+    wpa.te
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true

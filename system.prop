@@ -2,6 +2,10 @@
 # system.prop for i9500
 #
 
+# Audio
+af.fast_track_multiplier=1
+audio.offload.disable=1
+
 # Camera
 camera2.portability.force_api=1
 
@@ -9,6 +13,9 @@ camera2.portability.force_api=1
 ro.opengles.version=131072 \
 ro.sf.lcd_density=480
 ro.zygote.disable_gl_preload=1
+
+# Media
+persist.sys.media.use-awesome=true
 
 # NFC
 nfc.app_log_level=2

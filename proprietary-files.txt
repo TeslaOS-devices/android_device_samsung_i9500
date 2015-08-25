@@ -5,10 +5,7 @@ vendor/firmware/srp_data.bin
 vendor/firmware/srp_vliw.bin
 
 # Bluetooth
-vendor/firmware/bcm4335.hcd
-vendor/firmware/bcm4335_A0.hcd
-vendor/firmware/bcm4335_murata.hcd
-vendor/firmware/bcm4335_semco.hcd
+vendor/firmware/bcm4335_V0343.0347.hcd
 
 # Camera
 lib/hw/camera.universal5410.so:lib/hw/camera.vendor.universal5410.so
@@ -47,6 +44,7 @@ vendor/firmware/setfile_gumi_imx135.bin
 vendor/firmware/setfile_sec_imx135.bin
 
 # Mobicore
+app/FFFFFFFF000000000000000000000001.drbin:vendor/firmware/mcRegistry/FFFFFFFF000000000000000000000001.drbin
 app/mcRegistry/00060308060501020000000000000000.tlbin:vendor/firmware/mcRegistry/00060308060501020000000000000000.tlbin
 app/mcRegistry/02010000080300030000000000000000.tlbin:vendor/firmware/mcRegistry/02010000080300030000000000000000.tlbin
 app/mcRegistry/07010000000000000000000000000000.tlbin:vendor/firmware/mcRegistry/07010000000000000000000000000000.tlbin
@@ -59,8 +57,11 @@ app/mcRegistry/ffffffff000000000000000000000008.tlbin:vendor/firmware/mcRegistry
 app/mcRegistry/ffffffff000000000000000000000009.tlbin:vendor/firmware/mcRegistry/ffffffff000000000000000000000009.tlbin
 app/mcRegistry/ffffffff00000000000000000000000a.tlbin:vendor/firmware/mcRegistry/ffffffff00000000000000000000000a.tlbin
 app/mcRegistry/ffffffff00000000000000000000000b.tlbin:vendor/firmware/mcRegistry/ffffffff00000000000000000000000b.tlbin
+app/mcRegistry/ffffffff00000000000000000000000c.tlbin:vendor/firmware/mcRegistry/ffffffff00000000000000000000000c.tlbin
+app/mcRegistry/ffffffff00000000000000000000000d.tlbin:vendor/firmware/mcRegistry/ffffffff00000000000000000000000d.tlbin
 app/mcRegistry/ffffffff00000000000000000000000f.tlbin:vendor/firmware/mcRegistry/ffffffff00000000000000000000000f.tlbin
 app/mcRegistry/ffffffff000000000000000000000010.tlbin:vendor/firmware/mcRegistry/ffffffff000000000000000000000010.tlbin
+app/mcRegistry/ffffffff000000000000000000000017.tlbin:vendor/firmware/mcRegistry/ffffffff000000000000000000000017.tlbin
 app/mcRegistry/ffffffffd00000000000000000000004.tlbin:vendor/firmware/mcRegistry/ffffffffd00000000000000000000004.tlbin
 app/mcRegistry/ffffffffd0000000000000000000000a.tlbin:vendor/firmware/mcRegistry/ffffffffd0000000000000000000000a.tlbin
 bin/scranton_RD
@@ -80,8 +81,12 @@ lib/libakm.so
 lib/libsensirion_j1.so
 
 # Widevine
+lib/drm/libdrmwvmplugin.so
+lib/libdrmdecrypt.so
+vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/mediadrm/libwvdrmengine.so
 
 # Wifi
 etc/wifi/bcmdhd_apsta.bin
